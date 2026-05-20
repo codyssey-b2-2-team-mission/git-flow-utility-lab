@@ -81,23 +81,53 @@ is_even: False
 
 ## 충돌 기록 #2
 ### 참여자
-- 작성자:
-- 상대:
+- 작성자: Sangheon Lee
+- 상대: giyeop-cody
 
 ### 상황(What happened)
-- 어떤 브랜치/파일에서 충돌이 났는지
+- giyeop-cody는 `feature/giyeop-rename-team-notes` 브랜치에서 `docs/team-notes.md`를 `docs/team-decisions.md`로 rename했습니다.
+- Sangheon Lee는 giyeop-cody의 rename PR이 main에 merge되기 전 기준에서 `feature/sangheon-rename-edit-conflict-resolution` 브랜치를 만들고, 원본 `docs/team-notes.md`에 rename/edit conflict review checklist를 추가했습니다.
+- 이후 giyeop-cody의 rename PR #19가 main에 먼저 merge되면서, Sangheon Lee 브랜치는 `docs/team-notes.md`를 수정한 상태이고 main은 같은 파일을 `docs/team-decisions.md`로 rename한 상태가 되었습니다.
+- GitHub PR 화면에서는 두 브랜치를 자동으로 merge할 수 없다는 안내와 함께 `docs/team-notes.md` conflict가 표시되었습니다.
+
+### 증빙 화면(Screenshots)
+![PR compare screen cannot automatically merge](<../screenshot/Screenshot 2026-05-20 at 8.39.47 PM.png>)
+
+![PR conflict notice for docs/team-notes.md](<../screenshot/Screenshot 2026-05-20 at 8.41.19 PM.png>)
+
+![Command line merge after fetching origin/main](<../screenshot/Screenshot 2026-05-20 at 8.43.07 PM.png>)
 
 ### 충돌 내용(Conflict markers)
 ```txt
-CONFLICT (rename/edit): ...
+GitHub PR UI:
+This branch has conflicts that must be resolved.
+docs/team-notes.md
+
+Command line merge:
+git fetch origin
+git merge origin/main
+Merge made by the 'ort' strategy.
+docs/{team-notes.md => team-decisions.md} | 0
+rename docs/{team-notes.md => team-decisions.md} (100%)
 ```
 
 ### 해결 과정(How)
-- 선택한 해결 전략(keep both / choose one / refactor)과 이유
-- 실제로 수행한 명령 또는 절차
+- 선택한 해결 전략은 `keep both`입니다.
+- 파일명은 giyeop-cody의 rename 목적에 맞게 최종 파일을 `docs/team-decisions.md`로 유지했습니다.
+- Sangheon Lee가 `docs/team-notes.md`에 추가한 rename/edit conflict review checklist 내용도 `docs/team-decisions.md`에 보존했습니다.
+- 로컬에서 `git fetch origin`으로 최신 main을 가져온 뒤 `git merge origin/main`을 실행했습니다.
+- Git은 `ort` 전략으로 rename을 감지했고, `docs/team-notes.md`에서 `docs/team-decisions.md`로의 rename을 merge commit에 반영했습니다.
+- 최종 파일에서 `docs/team-notes.md`는 제거되고 `docs/team-decisions.md`만 남아 있는지 확인했습니다.
 
 ### 결과(Outcome)
-- 최종 병합 결과 요약, 관련 PR/커밋 링크
+- 최종 파일은 `docs/team-decisions.md`로 정리되었습니다.
+- 기존 팀 결정 내용과 Sangheon Lee의 rename/edit conflict review checklist가 함께 유지되었습니다.
+- `docs/team-notes.md`는 최종 브랜치에 남아 있지 않습니다.
+- 관련 PR: [#20](https://github.com/codyssey-b2-2-team-mission/git-flow-utility-lab/pull/20)
+- 선행 rename PR: [#19](https://github.com/codyssey-b2-2-team-mission/git-flow-utility-lab/pull/19)
+- 해결 커밋: `97d8e1b`
 
 ### 배운 점(Learnings)
-- 다음에 예방하려면 무엇을 할지
+- rename 작업과 edit 작업이 같은 파일을 대상으로 진행될 때는 PR 순서와 기준 브랜치를 먼저 공유해야 합니다.
+- rename PR이 먼저 merge될 예정이라면 edit 담당자는 최신 main을 반영한 뒤 새 파일명에 수정하는 편이 안전합니다.
+- GitHub UI에서 conflict가 보이면 로컬에서 `git fetch origin`과 `git merge origin/main`으로 실제 파일 상태를 확인하고, rename된 최종 파일에 edit 내용이 보존되었는지 검토해야 합니다.
