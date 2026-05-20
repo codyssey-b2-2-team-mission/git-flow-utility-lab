@@ -87,4 +87,3 @@
 
 ### 왜 이 방법을 선택했는가(Why)
 - stash를 선택한 이유
-temporary wrong note
