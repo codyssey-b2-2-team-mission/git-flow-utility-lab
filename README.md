@@ -11,6 +11,7 @@
 ## Current status
 
 Sangheon Lee PR 2에서 이름 정규화 문제를 수정했습니다.
+이번 PR에서는 `count_words`, `is_even`의 남은 starter gap은 수정하지 않고 후속 PR에 남깁니다.
 
 남은 starter gap:
 
