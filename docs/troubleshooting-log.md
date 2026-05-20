@@ -31,17 +31,27 @@
 - KANGSIK-SEO
 
 ### 상황
-- 문제가 무엇이었는지(재현 가능한 설명)
+- `docs/troubleshooting-log.md`의 reset soft 시나리오를 작성한 뒤 처음에는 커밋 메시지를 `update`로 작성했습니다.
+- 이 메시지는 어떤 Git 상황을 기록했는지 알기 어렵고, 팀 커밋 메시지 규칙에서도 금지한 모호한 표현입니다.
+- 아직 원격 브랜치에 push하기 전이었기 때문에, 커밋만 취소하고 같은 변경사항은 그대로 유지한 뒤 더 명확한 메시지로 다시 커밋했습니다.
 
 ### 시도한 명령/절차
-- (예) `git reset --soft HEAD~1`
+- `git add docs/troubleshooting-log.md`
+- `git commit -m "update"`
+- `git reset --soft HEAD~1`
+- `git commit -m "docs: record reset soft scenario"`
+- `git push -u origin feature/kangsik-reset-soft-log`
 
 ### 결과
-- 무엇이 어떻게 해결됐는지
-- 주의할 점(특히 원격 히스토리/협업 영향)
+- `update` 커밋은 로컬 히스토리에서 사라졌습니다.
+- 문서 변경사항은 사라지지 않고 staged 상태로 유지되어 바로 다시 커밋할 수 있었습니다.
+- 최종 커밋 메시지는 `docs: record reset soft scenario`가 되어 변경 목적이 더 명확해졌습니다.
+- 주의할 점: `git reset --soft HEAD~1`은 변경사항을 보존하지만 커밋 이력을 되돌립니다. 이미 원격에 push한 공유 커밋에는 팀 합의 없이 reset을 사용하지 않고, 보통 `git revert`를 우선 검토합니다.
 
 ### 왜 이 방법을 선택했는가(Why)
-- reset soft를 선택한 이유
+- 파일 내용은 유지하고 커밋 메시지만 더 좋은 형태로 다시 만들고 싶었습니다.
+- `--soft` 옵션은 작업 내용을 삭제하지 않고 staging area에 남겨두므로, destructive reset보다 안전하게 커밋만 다시 만들 수 있습니다.
+- push 전 로컬 커밋 정리 상황이라 협업 중인 원격 히스토리에 영향을 주지 않았습니다.
 
 ## 시나리오: revert
 ### 참여자
