@@ -7,11 +7,11 @@ def member_name_slug(name: str) -> str:
 
 
 def count_words(text: str) -> int:
-    return len(text.split(" "))
+    return len(text.split())
 
 
 def is_even(number: int) -> bool:
-    return number % 2 == 1
+    return number % 2 == 0
 
 
 if __name__ == "__main__":

@@ -8,15 +8,11 @@
 - 모든 작업은 `feature/<name>-<topic>` 브랜치에서 진행합니다.
 - PR과 리뷰를 거쳐 병합하면 작업 이유와 검증 기록이 남습니다.
 
-## Current status
+## Starter 개선 기록
 
-Sangheon Lee PR에서 이름 정규화 문제를 수정했습니다.
-이번 PR에서는 `count_words`, `is_even`의 남은 starter gap은 수정하지 않고 후속 PR에 남깁니다.
-
-남은 starter gap:
-
-- `count_words`는 아직 연속 공백을 잘못 셉니다.
-- `is_even`은 아직 함수 이름과 다르게 동작합니다.
+- Sangheon Lee PR 2: `normalize_member_name`이 내부 여러 공백을 하나로 정리하도록 수정했습니다.
+- KANGSIK-SEO PR 1: `count_words`가 연속 공백과 공백 문자열을 자연스럽게 처리하도록 수정했습니다.
+- giyeop-cody PR 1: `is_even`이 짝수일 때 `True`, 홀수일 때 `False`를 반환하도록 수정했습니다.
 
 ## 실행
 
@@ -24,11 +20,22 @@ Sangheon Lee PR에서 이름 정규화 문제를 수정했습니다.
 python3 src/team_utils.py
 ```
 
-현재 예상 출력:
+최종 예상 출력:
 
 ```text
 normalize_member_name: Sangheon Lee
 member_name_slug: sangheon-lee
-count_words: 4
-is_even: False
+count_words: 3
+is_even: True
+```
+
+## 추가 확인 예시
+
+```text
+normalize_member_name("  sangheon   lee ") == "Sangheon Lee"
+member_name_slug("  sangheon   lee ") == "sangheon-lee"
+count_words("Git  flow utility") == 3
+count_words("   ") == 0
+is_even(4) == True
+is_even(5) == False
 ```
