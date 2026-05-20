@@ -1,0 +1,17 @@
+# Default reviewers
+* @shannonlee-dev @KANGSIK-SEO @giyeop-cody
+
+# Source code owners
+/src/ @shannonlee-dev
+
+# Project documentation owners
+/README.md @shannonlee-dev
+/docs/ @KANGSIK-SEO @giyeop-cody
+
+# Submission and evidence owners
+/SUBMISSION.md @giyeop-cody
+/screenshot/ @shannonlee-dev @giyeop-cody
+/evidence-git-history.txt @giyeop-cody
+
+# GitHub automation owners
+/.github/ @shannonlee-dev
