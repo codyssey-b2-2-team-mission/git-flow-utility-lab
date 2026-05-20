@@ -11,11 +11,10 @@
 ## Current status
 
 Sangheon Lee PR에서 이름 정규화 문제를 수정했습니다.
-이번 PR에서는 `count_words`, `is_even`의 남은 starter gap은 수정하지 않고 후속 PR에 남깁니다.
+KANGSIK-SEO PR에서 `count_words`가 연속 공백과 공백만 있는 문자열을 실제 단어 수 기준으로 처리하도록 수정했습니다.
 
 남은 starter gap:
 
-- `count_words`는 아직 연속 공백을 잘못 셉니다.
 - `is_even`은 아직 함수 이름과 다르게 동작합니다.
 
 ## 실행
@@ -29,6 +28,11 @@ python3 src/team_utils.py
 ```text
 normalize_member_name: Sangheon Lee
 member_name_slug: sangheon-lee
-count_words: 4
+count_words: 3
 is_even: False
 ```
+
+추가 확인 예시:
+
+- `count_words("Git  flow utility") == 3`
+- `count_words("   ") == 0`
