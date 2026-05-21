@@ -1,6 +1,6 @@
 # Git Flow Utility Lab
 
-3인 팀이 GitHub Flow, Issue, PR, Review, Conflict, Troubleshooting을 실습하는 저장소입니다.
+3인 팀이 GitHub Flow, Issue, PR, Review, Conflict, Troubleshooting 흐름을 실습하는 저장소입니다.
 
 ## GitHub Flow 선택 이유
 
@@ -10,7 +10,7 @@
 
 ## Starter 개선 기록
 
-- Sangheon Lee PR 2: `normalize_member_name`이 내부 여러 공백을 하나로 정리하도록 수정했습니다.
+- Sangheon Lee PR 2: `normalize_member_name`이 내부의 여러 공백을 하나로 정리하도록 수정했습니다.
 - KANGSIK-SEO PR 1: `count_words`가 연속 공백과 공백 문자열을 자연스럽게 처리하도록 수정했습니다.
 - giyeop-cody PR 1: `is_even`이 짝수일 때 `True`, 홀수일 때 `False`를 반환하도록 수정했습니다.
 

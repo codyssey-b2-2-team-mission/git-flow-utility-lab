@@ -1,4 +1,4 @@
-# Team Notes
+# Team Decisions
 
 This file is used for the rename/edit conflict exercise.
 
@@ -13,6 +13,6 @@ This file is used for the rename/edit conflict exercise.
 
 ## Rename/Edit Conflict 리뷰 체크리스트
 
-- rename된 파일에 기존 팀 결정 내용이 유지되었는지 확인한다.
-- 충돌 해결 후 Sangheon Lee의 수정 내용이 보존되었는지 확인한다.
-- 최종 파일이 `docs/team-decisions.md`가 될 때 `docs/team-notes.md`가 남아 있지 않은지 확인한다.
+- rename된 파일에 기존 팀 결정 내용이 유지되었는지 확인합니다.
+- 충돌 해결 후 Sangheon Lee의 수정 내용이 보존되었는지 확인합니다.
+- 최종 파일이 `docs/team-decisions.md`가 되었을 때 `docs/team-notes.md`가 남아 있지 않은지 확인합니다.
