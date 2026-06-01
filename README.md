@@ -11,7 +11,6 @@
 ## Starter 개선 기록
 
 - Sangheon Lee PR 2: `normalize_member_name`이 내부의 여러 공백을 하나로 정리하도록 수정했습니다.
-- Sangheon Lee PR 3: `member_initials`가 정리된 이름에서 이니셜을 반환하도록 추가했습니다.
 - KANGSIK-SEO PR 1: `count_words`가 연속 공백과 공백 문자열을 자연스럽게 처리하도록 수정했습니다.
 - giyeop-cody PR 1: `is_even`이 짝수일 때 `True`, 홀수일 때 `False`를 반환하도록 수정했습니다.
 
@@ -26,7 +25,6 @@ python3 src/team_utils.py
 ```text
 normalize_member_name: Sangheon Lee
 member_name_slug: sangheon-lee
-member_initials: SL
 count_words: 3
 is_even: True
 ```
@@ -36,7 +34,6 @@ is_even: True
 ```text
 normalize_member_name("  sangheon   lee ") == "Sangheon Lee"
 member_name_slug("  sangheon   lee ") == "sangheon-lee"
-member_initials("  sangheon   lee ") == "SL"
 count_words("Git  flow utility") == 3
 count_words("   ") == 0
 is_even(4) == True
